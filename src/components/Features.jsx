@@ -1,19 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Wifi, Zap, Droplets, Warehouse } from 'lucide-react';
+import { Wifi, Zap, Droplets, Warehouse, Sparkles } from 'lucide-react';
 
 const Features = () => {
     const features = [
         { icon: <Zap />, name: "Struja & Voda" },
         { icon: <Wifi />, name: "High-Speed Wi-Fi" },
         { icon: <Warehouse />, name: "Održavanje Parcela" },
-        { icon: <Droplets />, name: "Sanitarni Čvorovi" }
+        { icon: <Droplets />, name: "Sanitarni Čvorovi" },
+        { icon: <Sparkles />, name: "Čišćenje & Održavanje" }
     ];
 
     return (
         <section className="section-padding bg-black" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
             <div className="container">
-                <div className="grid-4">
+                <div className="flex flex-wrap justify-center gap-12 lg:gap-20">
                     {features.map((f, i) => (
                         <motion.div
                             key={i}
