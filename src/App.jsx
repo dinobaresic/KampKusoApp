@@ -1,25 +1,43 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Features from './components/Features';
-import Plots from './components/Plots';
-import Location from './components/Location';
-import Footer from './components/Footer';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import Home from './components/Home';
+import './index.css';
+
+// Lazy load Masterplan
+const Masterplan = lazy(() => import('./components/Masterplan'));
+
+// Simple loading fallback
+const Loader = () => (
+  <div className="h-64 w-full flex items-center justify-center bg-black text-white/20">
+    <span className="animate-pulse font-black uppercase tracking-widest text-xs">Učitavanje...</span>
+  </div>
+);
+
+// ScrollToTop component
+const ScrollToTop = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return null;
+}
 
 function App() {
   return (
-    <div className="min-h-screen bg-bg-light">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Features />
-        <Plots />
-        <Location />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/masterplan"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Masterplan />
+            </Suspense>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 

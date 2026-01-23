@@ -24,17 +24,17 @@ const Navbar = () => {
         className={`navbar-content ${isScrolled ? 'scrolled' : 'initial'}`}
       >
         {/* Logo Section */}
-        <div className="nav-logo-group">
+        <a href="/" className="nav-logo-group">
           <span className="nav-logo-main">Kamp Kušo</span>
           <span className="nav-logo-sub">Premium Resort</span>
-        </div>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="nav-menu hidden-mobile">
           {['O nama', 'Parcele', 'Plaža', 'Kontakt'].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase().replace(' ', '')}`}
+              href={`/#${item.toLowerCase().replace(' ', '')}`}
               className="nav-link"
             >
               {item}
@@ -84,7 +84,7 @@ const Navbar = () => {
               {['O nama', 'Parcele', 'Plaža', 'Kontakt'].map((item, i) => (
                 <motion.a
                   key={item}
-                  href={`#${item.toLowerCase().replace(' ', '')}`}
+                  href={`/#${item.toLowerCase().replace(' ', '')}`}
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: i * 0.1 }}

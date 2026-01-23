@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import complexAerial from '../assets/complex_aerial.jpg';
 
 const Plots = () => {
@@ -98,14 +99,13 @@ const Plots = () => {
                         className="masterplan-img"
                     />
                     <div className="masterplan-overlay">
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
+                        <Link
+                            to="/masterplan"
                             className="btn-impact btn-solid-orange"
-                            style={{ boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}
+                            style={{ boxShadow: '0 20px 50px rgba(0,0,0,0.5)', textDecoration: 'none' }}
                         >
                             Pregledaj Masterplan
-                        </motion.button>
+                        </Link>
                     </div>
                 </motion.div>
             </div>
