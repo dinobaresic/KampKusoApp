@@ -49,41 +49,54 @@ const Plots = () => {
                     viewport={{ once: true }}
                     className="grid-3"
                 >
-                    {plots.map((plot) => (
-                        <motion.div
-                            key={plot.id}
-                            variants={itemVariants}
-                            className="plot-card"
-                        >
-                            <span className="plot-id">
-                                {plot.id}
-                            </span>
+                    {plots.map((plot) => {
+                        // Map plot names to masterplan zone IDs
+                        const zoneMap = {
+                            "Premium Zona": "premium",
+                            "Hill Zona": "hill",
+                            "Central Zona": "central"
+                        };
+                        const zoneId = zoneMap[plot.name];
 
-                            <div className="plot-content">
-                                <h4 className="plot-name text-white">
-                                    {plot.name}
-                                </h4>
-                                <span className="plot-size">
-                                    Veličina: {plot.size}
-                                </span>
-
-                                <div className="plot-footer">
-                                    <span className={`status-pill ${plot.status === 'Dostupno' ? 'text-green' : 'text-red'}`} style={{ color: plot.status === 'Dostupno' ? '#00E676' : '#ef4444' }}>
-                                        {plot.status}
+                        return (
+                            <Link
+                                key={plot.id}
+                                to={`/masterplan?zone=${zoneId}`}
+                                style={{ textDecoration: 'none', display: 'block' }}
+                            >
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="plot-card"
+                                >
+                                    <span className="plot-id">
+                                        {plot.id}
                                     </span>
-                                    <motion.div
-                                        whileHover={{ rotate: 45, color: "#FF5C00" }}
-                                        className="text-white"
-                                        style={{ opacity: 0.5 }}
-                                    >
-                                        <ExternalLink size={20} />
-                                    </motion.div>
-                                </div>
-                            </div>
 
-                            {/* Hover Glow Effect via CSS psuedo-elements or JS if complex */}
-                        </motion.div>
-                    ))}
+                                    <div className="plot-content">
+                                        <h4 className="plot-name text-white">
+                                            {plot.name}
+                                        </h4>
+                                        <span className="plot-size">
+                                            Veličina: {plot.size}
+                                        </span>
+
+                                        <div className="plot-footer">
+                                            <span className={`status-pill ${plot.status === 'Dostupno' ? 'text-green' : 'text-red'}`} style={{ color: plot.status === 'Dostupno' ? '#00E676' : '#ef4444' }}>
+                                                {plot.status}
+                                            </span>
+                                            <motion.div
+                                                whileHover={{ rotate: 45, color: "#FF5C00" }}
+                                                className="text-white"
+                                                style={{ opacity: 0.5 }}
+                                            >
+                                                <ExternalLink size={20} />
+                                            </motion.div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </Link>
+                        );
+                    })}
                 </motion.div>
 
                 {/* Big Aerial Visual Button */}

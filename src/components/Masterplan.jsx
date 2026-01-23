@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Anchor, Warehouse, MapPin, Zap, Droplets, Trophy, Mountain, Focus, MousePointerClick } from 'lucide-react';
 import Navbar from './Navbar';
@@ -67,8 +68,16 @@ const zones = {
 };
 
 const Masterplan = () => {
-    // Initial state is null (no selection)
+    const [searchParams] = useSearchParams();
+    // Initial state is null, but we'll check params immediately
     const [activeZone, setActiveZone] = useState(null);
+
+    useEffect(() => {
+        const zoneParam = searchParams.get('zone');
+        if (zoneParam && zones[zoneParam]) {
+            setActiveZone(zoneParam);
+        }
+    }, [searchParams]);
 
     const handleZoneChange = (zoneId) => {
         // Toggle if clicking same zone? Or just set. Let's just set for now, or toggle off if same.
