@@ -14,7 +14,7 @@ const Features = () => {
     return (
         <section className="section-padding bg-black" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
             <div className="container">
-                <div className="flex flex-wrap justify-center gap-12 lg:gap-20">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12 items-start justify-center">
                     {features.map((f, i) => (
                         <motion.div
                             key={i}
