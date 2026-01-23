@@ -6,9 +6,9 @@ import complexAerial from '../assets/complex_aerial.jpg';
 
 const Plots = () => {
     const plots = [
-        { id: '01', name: "Zona A - Premium Front", size: "140m²", status: "Dostupno" },
-        { id: '02', name: "Zona B - Forest Side", size: "125m²", status: "Rezervirano" },
-        { id: '03', name: "Zona C - South Hill", size: "160m²", status: "Dostupno" }
+        { id: '01', name: "Premium Zona", size: "140m²", status: "Dostupno" },
+        { id: '02', name: "Hill Zona", size: "125m²", status: "Dostupno" },
+        { id: '03', name: "Central Zona", size: "160m²", status: "Dostupno" }
     ];
 
     const containerVariants = {
