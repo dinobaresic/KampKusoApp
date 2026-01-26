@@ -17,7 +17,7 @@ const Hero = () => {
                 />
             </motion.div>
 
-            <div className="container hero-content">
+            <div className="container hero-content pb-40">
                 <div className="hero-text-container">
                     <motion.h1
                         initial={{ y: "100%" }}
