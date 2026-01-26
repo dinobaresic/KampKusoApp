@@ -4,7 +4,7 @@ import sunsetHero from '../assets/units_evening.jpg';
 
 const Hero = () => {
     return (
-        <section id="home" className="hero-section">
+        <section id="home" className="hero-section !p-0 !items-center">
             {/* Dark Background with Overlay */}
             <motion.div
                 className="hero-bg-wrapper"
