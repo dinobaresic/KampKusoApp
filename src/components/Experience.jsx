@@ -1,11 +1,14 @@
 import React, { useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import videoSource from '../assets/videokampkuso.mp4';
 
 const Experience = () => {
     const videoRef = useRef(null);
     const sectionRef = useRef(null);
-    const [isPlaying, setIsPlaying] = React.useState(true);
+    const [isPlaying, setIsPlaying] = React.useState(false); // Start false, let auto-play set it to true
+
+    // Track when section is 50% visible
+    const isInView = useInView(sectionRef, { amount: 0.5 });
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -15,23 +18,23 @@ const Experience = () => {
     useEffect(() => {
         const video = videoRef.current;
         if (!video) return;
-        video.muted = true;
-        video.play().catch(e => {
-            console.log("Autoplay blocked:", e);
-            setIsPlaying(false);
-        });
-    }, []);
+
+        if (isInView) {
+            video.play().catch(e => console.log("Auto-play blocked:", e));
+        } else {
+            video.pause();
+        }
+    }, [isInView]); // Reacts ONLY to visibility changes
 
     const togglePlay = () => {
         const video = videoRef.current;
         if (!video) return;
 
-        if (isPlaying) {
-            video.pause();
-        } else {
+        if (video.paused) {
             video.play();
+        } else {
+            video.pause();
         }
-        setIsPlaying(!isPlaying);
     };
 
     const toggleFullscreen = () => {
@@ -61,6 +64,8 @@ const Experience = () => {
                     muted
                     loop
                     playsInline
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
                 />
             </motion.div>
 
