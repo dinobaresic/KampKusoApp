@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from './Navbar';
 import Hero from './Hero';
+import Experience from './Experience';
 import About from './About';
 import Footer from './Footer';
 
@@ -32,6 +33,7 @@ const Home = () => {
 
             <main>
                 <Hero />
+                <Experience />
                 <About />
 
                 <Suspense fallback={<Loader />}>
