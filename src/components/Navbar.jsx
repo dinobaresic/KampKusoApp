@@ -34,7 +34,7 @@ const Navbar = () => {
           {['O nama', 'Parcele', 'Plaža', 'Kontakt'].map((item) => (
             <a
               key={item}
-              href={item === 'Kontakt' ? '/kontakt' : `/#${item.toLowerCase().replace(' ', '')}`}
+              href={item === 'Kontakt' ? '/kontakt' : item === 'Plaža' ? '/plaza' : `/#${item.toLowerCase().replace(' ', '')}`}
               className="nav-link"
             >
               {item}
@@ -84,7 +84,7 @@ const Navbar = () => {
               {['O nama', 'Parcele', 'Plaža', 'Kontakt'].map((item, i) => (
                 <motion.a
                   key={item}
-                  href={item === 'Kontakt' ? '/kontakt' : `/#${item.toLowerCase().replace(' ', '')}`}
+                  href={item === 'Kontakt' ? '/kontakt' : item === 'Plaža' ? '/plaza' : `/#${item.toLowerCase().replace(' ', '')}`}
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: i * 0.1 }}

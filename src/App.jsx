@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Home from './components/Home';
 import ContactPage from './components/ContactPage';
+import BeachPage from './components/BeachPage';
 import './index.css';
 
 // Lazy load Masterplan
@@ -38,6 +39,7 @@ function App() {
           }
         />
         <Route path="/kontakt" element={<ContactPage />} />
+        <Route path="/plaza" element={<BeachPage />} />
       </Routes>
     </Router>
   );
