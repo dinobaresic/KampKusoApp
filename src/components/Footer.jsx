@@ -18,7 +18,7 @@ const Footer = () => {
                         <span style={{ fontSize: '0.8rem', opacity: 0.5, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 900, marginBottom: '0.5rem' }}>Kontakt & Lokacija</span>
                         <span>Uvala Lučica, Drage, Hrvatska</span>
                         <span className="contact-highlight">+385 92 254 2249</span>
-                        <a href="mailto:info@kampkuso.hr" className="hover:text-white transition-colors mb-6">info@kampkuso.hr</a>
+                        <a href="mailto:info@kampkuso.hr" className="hover:text-white transition-colors mb-6">zobaresic@gmail.com</a>
 
 
                     </div>
