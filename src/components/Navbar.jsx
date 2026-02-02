@@ -104,7 +104,7 @@ const Navbar = () => {
                 className="btn-whatsapp mt-8"
                 style={{ textDecoration: 'none', display: 'inline-flex' }}
               >
-                WhatsApp Rezezervacija
+                WhatsApp
               </motion.a>
             </nav>
           </motion.div>
