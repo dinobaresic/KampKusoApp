@@ -22,13 +22,7 @@ const Hero = () => {
 
             {/* Content */}
             <div
-                className="container hero-content"
-                style={{
-                    minHeight: '100vh',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                }}
+                className="container hero-content hero-center-mobile"
             >
                 <div className="hero-text-container">
                     <motion.h1
@@ -37,7 +31,7 @@ const Hero = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         className="title-massive text-white"
-                        style={{ marginBottom: '1rem' }}
+                        style={{ marginBottom: '1rem', lineHeight: '0.9' }} // Tighter line height for mobile
                     >
                         TVOJA OAZA <br />
                         <span className="text-white">CIJELU GODINU</span>
@@ -50,6 +44,7 @@ const Hero = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="hero-description"
+                    style={{ marginBottom: '1.5rem', maxWidth: '90%' }} // Less margin on mobile
                 >
                     Ekskluzivna mjesta za kamp kućice i mobilne kućice s godišnjim
                     paušalom. Vaš privatni komadić Dalmacije čeka na vas.
@@ -61,7 +56,7 @@ const Hero = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="hero-actions"
-                    style={{ paddingTop: '2.5rem' }} // razmak ispod teksta
+                    style={{ paddingTop: '1rem' }} // Reduced padding
                 >
                     <Link
                         to="/kontakt"

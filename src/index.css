@@ -277,6 +277,24 @@ a {
   z-index: 1;
 }
 
+/* Hero Responsive Adjustment */
+.hero-center-mobile {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 15vh;
+  /* Push content up on mobile */
+}
+
+@media (min-width: 768px) {
+  .hero-center-mobile {
+    min-height: 100vh;
+    padding-bottom: 0;
+    justify-content: center;
+  }
+}
+
 /* Navbar */
 .navbar-root {
   position: fixed;
